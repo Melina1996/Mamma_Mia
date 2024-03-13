@@ -55,7 +55,7 @@ export default function Navbar() {
             setStyle({ display: "none" });
           }}
         >
-          <img src={Cart} alt="" className="w-[35px] h-[35px]" />
+          <img src={Cart} alt="" className="w-[35px] h-[35px] drop-shadow-xl" />
         </NavLink>
         <div
           className="bg-black text-white w-[150px] absolute top-[75px] z-10 right-2 rounded p-2"

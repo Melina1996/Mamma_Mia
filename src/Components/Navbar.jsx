@@ -8,13 +8,12 @@ import { useEffect } from "react";
 
 import Cart from "../assets/img/cart.png";
 import Peace from "../assets/img/peace.png";
+import HoverInfo from "./HoverInfo";
 
 export default function Navbar() {
   const dispatch = useDispatch();
 
   const [style, setStyle] = useState({ display: "none" });
-
-  const myTotal = useSelector((state) => state.basket.total);
 
   const myBasket = useSelector((state) => state.basket.value);
 
@@ -50,49 +49,8 @@ export default function Navbar() {
         >
           <img src={Cart} alt="" className="w-[35px] h-[35px] drop-shadow-xl" />
         </NavLink>
-        <div
-          className={`bg-[#F7C300ff] text-black absolute ${
-            myBasket.length == 0 ? "w-[200px]" : "w-[400px]"
-          } top-[75px] z-10 right-2 rounded p-4 py-6 myNav`}
-          style={style}
-        >
-          {myBasket.length == 0 ? (
-            <p>Your basket is empty!</p>
-          ) : (
-            <p className="font-semibold">Recently added items:</p>
-          )}
 
-          {myBasket.map((item, key) => {
-            if (key == myBasket.length - 1 || key == myBasket.length - 2) {
-              return (
-                <div className="">
-                  <div className="flex items-center">
-                    <img
-                      src={
-                        new URL(
-                          //image path starts from HERE
-                          `../assets/img/${item.image}`,
-                          import.meta.url
-                        ).href
-                      }
-                      alt=""
-                      className="w-[30%]"
-                    />
-                    <p>{item.name.toUpperCase()}</p>
-                  </div>
-                </div>
-              );
-            }
-          })}
-
-          {myBasket.length != 0 ? (
-            <div className="w-[100%] flex justify-end pr-4">
-              <p className="text-[15px] font-semibold">TOTAL: {myTotal}€</p>
-            </div>
-          ) : (
-            ""
-          )}
-        </div>
+        <HoverInfo style={style} />
       </div>
     </div>
   );

@@ -1,7 +1,11 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { chose } from "../features/ingredientsSlice";
+import data from "../assets/JSON/data.json"
 
 import Dropdown from "./Dropdown";
+import X from "../assets/img/x.png"
 
 export default function Filters(props) {
 
@@ -9,6 +13,8 @@ export default function Filters(props) {
 
     //to be able to change btn-color correspondingly
     const[btn,setBtn]=useState("")
+
+    const dispatch = useDispatch()
 
   return (
     <div className="flex justify-center max-[426px]:flex-col items-center gap-2 pt-4 pb-4 relative">
@@ -37,6 +43,13 @@ export default function Filters(props) {
           INGREDIENTS
         </button>
         {toggle ? <Dropdown /> : ""}
+
+        <button
+          onClick={() => {props.setPizzas(data),dispatch(chose(""))}}
+          className="hover:bg-red-600 text-white p-2 rounded-full bg-black shadow"
+        >
+          <img src={X} alt="" className="w-[20px] h-[20px] transition-all hover:rotate-90"/>
+        </button>
 
     </div>
   );

@@ -47,7 +47,7 @@ export default function Home() {
                   className="flex flex-col justify-center items-center text-center xl:w-[400px] xl:h-[400px] lg:w-[300px] lg:h-[300px] md:w-[350px] md:h-[350px] max-[426px]:w-[200px] max-[426px]:h-[200px]"
                 >
                   <img
-                    className="rounded xl:w-[70%] lg:w-[65%] md:w-[70%] max-[426px]:w-[40%] transition-all hover:rotate-180 drop-shadow-xl"
+                    className={`${item.name == "DIY" ? "xl:w-[80%]" : "xl:w-[70%]"} rounded lg:w-[65%] md:w-[70%] max-[426px]:w-[40%] transition-all hover:rotate-180 drop-shadow-xl`}
                     src={
                       new URL(
                         //image path starts from HERE
@@ -75,7 +75,7 @@ export default function Home() {
                 className="flex flex-col justify-center items-center text-center xl:w-[400px] xl:h-[400px] lg:w-[300px] lg:h-[300px] md:w-[350px] md:h-[350px] max-[426px]:w-[200px] max-[426px]:h-[200px]"
               >
                 <img
-                  className="rounded xl:w-[70%] lg:w-[65%] md:w-[70%] max-[426px]:w-[40%] transition-all hover:rotate-180 drop-shadow-xl"
+                  className={`${item.name == "DIY" ? "xl:w-[100%]" : "xl:w-[70%]"} rounded lg:w-[65%] md:w-[70%] max-[426px]:w-[40%] transition-all hover:rotate-180 drop-shadow-xl`}
                   src={
                     new URL(
                       //image path starts from HERE

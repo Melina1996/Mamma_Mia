@@ -46,7 +46,7 @@ export default function ShoppingCart() {
               className="flex justify-start items-center text-center w-[800px]"
             >
               <img
-                className="rounded w-[30%] transition-all hover:rotate-180"
+                className={`${item.name == "DIY" ? "w-[50%]" : "w-[30%]"} rounded transition-all hover:rotate-180`}
                 src={
                   new URL(
                     //image path starts from HERE
@@ -60,7 +60,15 @@ export default function ShoppingCart() {
                 <p className="font-semibold text-[20px] text-white">
                   {item.name.toUpperCase()}
                 </p>
-                <p>{item.ingredients.join(" | ")}</p>
+
+                {item.name == "DIY" ? (
+                  <p>{item.ingredients.map((item,key)=>
+                  <span>{item.name} </span>
+                  )}</p>
+  
+                ) : (
+                  <p>{item.ingredients.join(" | ")}</p>
+                )}
 
                 <p className="text-[18px] text-[#006214ff] font-semibold text-white">
                   {item.price * item.quantity}€
@@ -98,15 +106,16 @@ export default function ShoppingCart() {
             myBasket.length == 0 ? "w-screen" : "w-[50%]"
           } flex flex-col items-center justify-end`}
         >
-          <img src={Skate} alt=""/>
+          <img src={Skate} alt="" />
 
           <div className="flex justify-center items-center w-[100%]">
             {myBasket.length == 0 ? (
-              <h1 className="text-[18px] text-[#006214ff] font-semibold tracking-widest">MAMMA MIA, YOUR BASKET IS STILL EMPTY!</h1>
+              <h1 className="text-[18px] text-[#006214ff] font-semibold tracking-widest">
+                MAMMA MIA, YOUR BASKET IS STILL EMPTY!
+              </h1>
             ) : (
-
               <div className="border-t-2 border-black w-[200px] flex justify-center">
-                  <h1 className="font-semibold text-[20px]">TOTAL:{myTotal} €</h1>
+                <h1 className="font-semibold text-[20px]">TOTAL:{myTotal} €</h1>
               </div>
             )}
           </div>

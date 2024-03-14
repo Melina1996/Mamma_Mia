@@ -4,48 +4,55 @@
       "price": 7,
       "image": "mozzarella.png",
       "ingredients": ["tomatoes", "cheese", "basil"],
-      "quantity": 0
+      "quantity": 0,
+      "type": "normal"
     },
     {
       "name": "Margherita Salami",
       "price": 9,
       "image": "mozza-salami.png",
       "ingredients": ["salami","tomatoes", "cheese", "basil"],
-      "quantity": 0
+      "quantity": 0,
+      "type": "normal"
     },
     {
       "name": "Pepper Salami",
       "price": 10,
       "image": "paprika.png",
       "ingredients": ["pepper", "salami", "cheese","tomatoes","olives"],
-      "quantity": 0
+      "quantity": 0,
+      "type": "normal"
     },
     {
       "name": "Mushrooms Salami",
       "price": 10,
       "image": "mushroom.png",
       "ingredients": ["salami","mushrooms", "tomatoes", "cheese", "basil"],
-      "quantity": 0
+      "quantity": 0,
+      "type": "normal"
     },
     {
       "name": "Tuna",
       "price": 12,
       "image": "tuna.png",
       "ingredients": ["tuna", "onions", "cheese"],
-      "quantity": 0
+      "quantity": 0,
+      "type": "normal"
     },
     {
       "name": "Mushrooms Veggie",
       "price": 9,
       "image": "veggie_olives.png",
       "ingredients": ["mushrooms", "olives", "cheese","tomatoes"],
-      "quantity": 0
+      "quantity": 0,
+      "type": "normal"
     },
     {
       "name": "DIY",
-      "price": 0,
-      "image": "veggie_olives.png",
+      "price": "min. 3",
+      "image": "dough.png",
       "ingredients": [""],
-      "quantity": 0
+      "quantity": 0,
+      "type": "DIY"
     }
   ]

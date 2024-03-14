@@ -8,6 +8,7 @@ import { NavLink } from "react-router-dom";
 import Navbar from "./Navbar";
 import Back from "../assets/img/back.png";
 import Ingredients from "./Ingredients";
+import Footer from "./Footer";
 
 export default function Details() {
   const { id } = useParams();
@@ -25,7 +26,7 @@ export default function Details() {
       </div>
 
       {data[id].name != "DIY" ? (
-        <div className="flex flex-col justify-center items-center w-screen">
+        <div className="flex flex-col justify-center items-center w-screen pb-10">
           <div className="w-[50%] flex justify-center items-center">
             <img
               className="rounded md:w-[60%] drop-shadow-xl transform-all hover:rotate-90"
@@ -41,24 +42,24 @@ export default function Details() {
           </div>
 
           <div className="flex flex-col justify-center items-center w-[50%] gap-3">
-            <div className="flex justify-center items-center gap-4">
-              <h1 className="font-semibold xl:text-[25px] lg:text-[22px] tracking-wider">
+            <div className="flex justify-center items-center gap-4 max-[426px]:w-screen">
+              <h1 className="font-semibold lg:text-[20px] tracking-wider">
                 {data[id].name.toUpperCase()}
               </h1>
 
-                <p className="text-[#006214ff] xl:text-[25px] lg:text-[22px] font-semibold tracking-wider">
+                <p className="text-[#006214ff] lg:text-[22px] font-semibold tracking-wider">
                   {data[id].price} €
                 </p>
   
             </div>
 
-            <p className="xl:text-[18px] lg:text-[16px] tracking-wider">
+            <p className="lg:text-[16px] tracking-wider max-[426px]:w-screen text-center">
               {data[id].ingredients.join(" | ")}
             </p>
 
               <button
                 onClick={() => dispatch(add(data[id]))}
-                className="bg-black text-white p-2 rounded-full w-[100px] shadow-lg tracking-widest"
+                className="bg-black text-white p-2 rounded-full w-[80px] shadow-lg tracking-widest hover:bg-[#006214ff]"
               >
                 ORDER
               </button>
@@ -68,6 +69,8 @@ export default function Details() {
       ) : (
         <Ingredients />
       )}
+
+      <Footer />
     </div>
   );
 }

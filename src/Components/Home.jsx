@@ -9,34 +9,34 @@ import data from "../assets/JSON/data.json";
 import Navbar from "./Navbar";
 import Filters from "./Filters";
 
-import Banner from "../assets/img/pizzaBanner.jpg"
+import Banner from "../assets/img/pizzaBanner.jpg";
 
 export default function Home() {
-
   const myIngredient = useSelector((state) => state.ingredients.value);
 
   //state to set order of displayed pizzas
-  const[myPizzas,setPizzas]=useState(data)
+  const [myPizzas, setPizzas] = useState(data);
 
   //order products based on their price
   const numAscending = [...data].sort((a, b) => a.price - b.price);
 
-  const numDescending = [...data].sort((a, b) => b.price - a.price)
+  const numDescending = [...data].sort((a, b) => b.price - a.price);
 
-//MACHE 2 TASTEN für jeweils WERT!!
+  //MACHE 2 TASTEN für jeweils WERT!!
   return (
     <div className="w-screen flex flex-col justify-center bg-[#FFF7EFff]">
-      
-        <Navbar />
+      <Navbar />
 
-        <div className="flex justify-center items-end xl:h-[500px] lg:h-[400px] md:h-[350px] max-[426px]:h-[300px]">
+      <div className="flex justify-center items-end xl:h-[500px] lg:h-[400px] md:h-[350px] max-[426px]:h-[300px]">
+        <img src={Banner} className="w-[30%] max-[426px]:w-[50%]" alt="" />
+      </div>
 
-          <img src={Banner} className="w-[30%] max-[426px]:w-[50%]" alt=""/>
-
-        </div>
-
-        <Filters setPizzas={setPizzas} numAscending={numAscending} numDescending={numDescending} myPizzas={myPizzas}/>
-
+      <Filters
+        setPizzas={setPizzas}
+        numAscending={numAscending}
+        numDescending={numDescending}
+        myPizzas={myPizzas}
+      />
 
       <div className="flex flex-wrap justify-center items-center pt-4">
         {myIngredient != ""
@@ -47,7 +47,9 @@ export default function Home() {
                   className="flex flex-col justify-center items-center text-center xl:w-[400px] xl:h-[400px] lg:w-[300px] lg:h-[300px] md:w-[350px] md:h-[350px] max-[426px]:w-[200px] max-[426px]:h-[200px]"
                 >
                   <img
-                    className={`${item.name == "DIY" ? "xl:w-[80%]" : "xl:w-[70%]"} rounded lg:w-[65%] md:w-[70%] max-[426px]:w-[40%] transition-all hover:rotate-180 drop-shadow-xl`}
+                    className={`${
+                      item.name == "DIY" ? "xl:w-[80%]" : "xl:w-[70%]"
+                    } rounded lg:w-[65%] md:w-[70%] max-[426px]:w-[40%] transition-all hover:rotate-180 drop-shadow-xl`}
                     src={
                       new URL(
                         //image path starts from HERE
@@ -58,11 +60,18 @@ export default function Home() {
                     alt=""
                   />
                   <div className="flex flex-col gap-2 pt-4">
-                    <Link to={`/details/${key}`} className="font-semibold md:text-[18px] max-[426px]:text-[15px]">
+                    <Link
+                      to={`/details/${key}`}
+                      className="font-semibold md:text-[18px] max-[426px]:text-[15px] tracking-wider max-[426px]:h-[40px]"
+                    >
                       {item.name.toUpperCase()}
                     </Link>
-                    <p className="text-[#006214ff] font-semibold">{item.price}€</p>
-                    <p className="max-[426px]:text-[15px] max-[426px]:h-[60px]">{item.ingredients.join(" | ")}</p>
+                    <p className="text-[#006214ff] font-semibold tracking-wider">
+                      {item.price}€
+                    </p>
+                    <p className="max-[426px]:text-[15px] max-[426px]:h-[60px] md:h-[60px] tracking-wider">
+                      {item.ingredients.join(" | ")}
+                    </p>
                   </div>
                 </div>
               ) : (
@@ -75,7 +84,7 @@ export default function Home() {
                 className="flex flex-col justify-center items-center text-center xl:w-[400px] xl:h-[400px] lg:w-[300px] lg:h-[300px] md:w-[350px] md:h-[350px] max-[426px]:w-[200px] max-[426px]:h-[200px]"
               >
                 <img
-                  className={`${item.name == "DIY" ? "xl:w-[100%]" : "xl:w-[70%]"} rounded lg:w-[65%] md:w-[70%] max-[426px]:w-[40%] transition-all hover:rotate-180 drop-shadow-xl`}
+                  className={`rounded lg:w-[65%] md:w-[70%] max-[426px]:w-[40%] transition-all hover:rotate-180 drop-shadow-xl`}
                   src={
                     new URL(
                       //image path starts from HERE
@@ -86,17 +95,21 @@ export default function Home() {
                   alt=""
                 />
                 <div className="flex flex-col gap-2">
-
-                  <div className="flex justify-center items-center gap-2">
-
-                    <Link to={`/details/${key}`} className="font-semibold md:text-[18px] max-[426px]:text-[15px]">
+                  <div className="flex justify-center items-center gap-2 max-[426px]:h-[40px]">
+                    <Link
+                      to={`/details/${key}`}
+                      className="font-semibold md:text-[18px] max-[426px]:text-[15px] tracking-wider"
+                    >
                       {item.name.toUpperCase()}
                     </Link>
 
-                    <p className="text-[#006214ff] font-semibold">{item.price}€</p>
-
+                    <p className="text-[#006214ff] font-semibold tracking-wider">
+                      {item.price}€
+                    </p>
                   </div>
-                  <p className="max-[426px]:text-[15px] max-[426px]:h-[60px] lg:h-[60px]">{item.ingredients.join(" | ")}</p>
+                  <p className="max-[426px]:text-[15px] max-[426px]:h-[60px] md:h-[60px] tracking-wider">
+                    {item.ingredients.join(" | ")}
+                  </p>
                 </div>
               </div>
             ))}

@@ -15,9 +15,9 @@ export default function HoverInfo(props) {
       style={props.style}
     >
       {myBasket.length == 0 ? (
-        <p>Your basket is empty!</p>
+        <p className="tracking-widest">Your basket is empty!</p>
       ) : (
-        <p className="font-semibold">Recently added items:</p>
+        <p className="font-semibold tracking-widest">Recently added items:</p>
       )}
 
       {myBasket.map((item, key) => {
@@ -34,9 +34,9 @@ export default function HoverInfo(props) {
                     ).href
                   }
                   alt=""
-                  className="w-[30%]"
+                  className={`w-[30%]`}
                 />
-                <p>{item.name.toUpperCase()}</p>
+                <p className="tracking-widest">{item.name.toUpperCase()}</p>
               </div>
             </div>
           );
@@ -45,7 +45,7 @@ export default function HoverInfo(props) {
 
       {myBasket.length != 0 ? (
         <div className="w-[100%] flex justify-end pr-4">
-          <p className="text-[15px] font-semibold">TOTAL: {myTotal}€</p>
+          <p className="text-[15px] font-semibold tracking-widest">TOTAL: {myTotal}€</p>
         </div>
       ) : (
         ""

@@ -9,8 +9,6 @@ export default function Ingredients() {
 
   const [myIngredients, setIngredients] = useState([]);
 
-  console.log(myIngredients);
-
   const [myprice, setMyPrice] = useState(0);
 
   const [checkedTomatoe, setCheckedTomatoe] = useState(false);
@@ -22,7 +20,16 @@ export default function Ingredients() {
   const [checkedMushrooms, setCheckedMushrooms] = useState(false);
   const [checkedBasil, setCheckedBasil] = useState(false);
 
-  const allIngredients=[checkedTomatoe,checkedBasil,checkedCheese,checkedMushrooms,checkedOnions,checkedPaprika,checkedSalami,checkedTuna]
+  const allIngredients = [
+    checkedTomatoe,
+    checkedBasil,
+    checkedCheese,
+    checkedMushrooms,
+    checkedOnions,
+    checkedPaprika,
+    checkedSalami,
+    checkedTuna,
+  ];
 
   const [myDIY, setDIY] = useState({
     name: "DIY",
@@ -33,7 +40,6 @@ export default function Ingredients() {
   });
 
   const update = (newPrice) => {
-    console.log(newPrice);
     setDIY((prevState) => ({
       ...prevState,
       price: newPrice,
@@ -41,6 +47,10 @@ export default function Ingredients() {
   };
 
   console.log(myDIY);
+
+  const[name,setName]=useState("")
+
+  console.log(name)
 
   function splice(ingredient) {
     const index = myIngredients.findIndex((obj) => obj.name === ingredient);
@@ -55,8 +65,17 @@ export default function Ingredients() {
       0
     );
 
-    update(total);
-  }, [allIngredients]);
+    update(total + 3);
+  }, [
+    checkedTomatoe,
+    checkedBasil,
+    checkedCheese,
+    checkedMushrooms,
+    checkedOnions,
+    checkedPaprika,
+    checkedSalami,
+    checkedTuna,
+  ]);
 
   return (
     <div className="flex justify-center items-center gap-2 w-screen">
@@ -75,6 +94,9 @@ export default function Ingredients() {
 
       <div className="w-[50%] flex justify-start items-center">
         <div className="flex flex-col">
+            <div>
+                <input type="text" placeholder="Name your pizza!" className="border-2" onChange={(e)=>setName(e.target.value)}/>
+            </div>
           <div className="flex gap-20">
             <div className="flex flex-col gap-2">
               <div className="flex gap-2">

@@ -19,20 +19,20 @@ export default function Filters(props) {
   return (
     <div className="flex justify-center max-[426px]:flex-col items-center gap-2 pt-4 pb-4 relative">
 
-      <h1 className="font-semibold">SORT BY:</h1>
+      <h1 className="font-semibold tracking-widest">SORT BY:</h1>
 
       <div className="flex justify-end items-center relative gap-2">
         <button
           onClick={() => {props.setPizzas(props.numAscending), setBtn("lowest")}}
-          className={`${btn == "lowest" ? "bg-[#006214ff]" : "bg-black"} text-white p-2 rounded-full w-[150px] shadow`}
+          className={`${btn == "lowest" ? "bg-[#006214ff]" : "bg-black"} hover:bg-[#006214ff] text-white p-2 rounded-full w-[160px] shadow`}
         >
-          <p>LOWEST PRICE</p>
+          <p className="tracking-widest text-[15px]">LOWEST PRICE</p>
         </button>
         <button
           onClick={() => {props.setPizzas(props.numDescending), setBtn("highest")}}
-          className="hover:bg-[#006214ff] bg-black text-white p-2 rounded-full w-[150px] shadow"
+          className={`${btn == "highest" ? "bg-[#006214ff]" : "bg-black"} hover:bg-[#006214ff] text-white p-2 rounded-full w-[160px] shadow`}
         >
-          <p>HIGHEST PRICE</p>
+          <p className="tracking-widest text-[15px]">HIGHEST PRICE</p>
         </button>
       </div>
 
@@ -40,12 +40,13 @@ export default function Filters(props) {
           onClick={() => setToggle(!toggle)}
           className="hover:bg-[#006214ff] border-[#006214ff] border-2 text-black hover:text-white p-2 rounded-full w-[150px] shadow"
         >
-          INGREDIENTS
+            <p className="tracking-widest text-[15px]">INGREDIENTS</p>
+          
         </button>
         {toggle ? <Dropdown /> : ""}
 
         <button
-          onClick={() => {props.setPizzas(data),dispatch(chose(""))}}
+          onClick={() => {props.setPizzas(data),dispatch(chose("")),setBtn("")}}
           className="hover:bg-red-600 text-white p-2 rounded-full bg-black shadow"
         >
           <img src={X} alt="" className="w-[20px] h-[20px] transition-all hover:rotate-90"/>

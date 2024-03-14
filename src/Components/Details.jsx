@@ -42,23 +42,23 @@ export default function Details() {
 
           <div className="flex flex-col justify-center items-center w-[50%] gap-3">
             <div className="flex justify-center items-center gap-4">
-              <h1 className="font-semibold xl:text-[25px] lg:text-[22px]">
+              <h1 className="font-semibold xl:text-[25px] lg:text-[22px] tracking-wider">
                 {data[id].name.toUpperCase()}
               </h1>
 
-                <p className="text-[#006214ff] xl:text-[25px] lg:text-[22px] font-semibold">
+                <p className="text-[#006214ff] xl:text-[25px] lg:text-[22px] font-semibold tracking-wider">
                   {data[id].price} €
                 </p>
   
             </div>
 
-            <p className="xl:text-[18px] lg:text-[16px]">
+            <p className="xl:text-[18px] lg:text-[16px] tracking-wider">
               {data[id].ingredients.join(" | ")}
             </p>
 
               <button
                 onClick={() => dispatch(add(data[id]))}
-                className="bg-black text-white p-2 rounded-full w-[100px] shadow-lg"
+                className="bg-black text-white p-2 rounded-full w-[100px] shadow-lg tracking-widest"
               >
                 ORDER
               </button>

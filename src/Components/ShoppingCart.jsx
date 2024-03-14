@@ -34,7 +34,7 @@ export default function ShoppingCart() {
     <div className="w-screen">
       <Navbar />
 
-      <div className="pt-28 flex justify-center items-start">
+      <div className="pt-28 flex justify-center items-center">
         <div
           className={`${
             myBasket.length == 0 ? "w-[0]" : "w-[50%]"
@@ -46,7 +46,7 @@ export default function ShoppingCart() {
               className="flex justify-start items-center text-center w-[800px]"
             >
               <img
-                className={`${item.name == "DIY" ? "w-[50%]" : "w-[30%]"} rounded transition-all hover:rotate-180`}
+                className={`${item.name == "DIY" ? "w-[30%]" : "w-[30%]"} rounded transition-all hover:rotate-180`}
                 src={
                   new URL(
                     //image path starts from HERE
@@ -57,20 +57,20 @@ export default function ShoppingCart() {
                 alt=""
               />
               <div className="flex flex-col items-start gap-2 pt-4">
-                <p className="font-semibold text-[20px] text-white">
+                <p className="font-semibold text-[20px] text-white tracking-wider">
                   {item.name.toUpperCase()}
                 </p>
 
                 {item.name == "DIY" ? (
-                  <p>{item.ingredients.map((item,key)=>
-                  <span>{item.name} </span>
+                  <p className="tracking-wider">{item.ingredients.map((item,key)=>
+                  <span key={key}>{item.name} </span>
                   )}</p>
   
                 ) : (
-                  <p>{item.ingredients.join(" | ")}</p>
+                  <p className="text-white tracking-wider">{item.ingredients.join(" | ")}</p>
                 )}
 
-                <p className="text-[18px] text-[#006214ff] font-semibold text-white">
+                <p className="text-[18px] text-[#006214ff] font-semibold text-white tracking-wider">
                   {item.price * item.quantity}€
                 </p>
 
@@ -81,7 +81,7 @@ export default function ShoppingCart() {
                   >
                     -
                   </button>
-                  <p className="font-semibold">{item.quantity}</p>
+                  <p className="font-semibold text-white tracking-wider">{item.quantity}</p>
                   <button
                     onClick={() => dispatch(add(item))}
                     className="bg-black text-white p-2 px-4 rounded-full font-semibold hover:bg-white hover:text-black"
@@ -90,7 +90,7 @@ export default function ShoppingCart() {
                   </button>
 
                   <button
-                    className="hover:bg-red-600 text-white p-2 rounded bg-black"
+                    className="hover:bg-red-600 text-white p-2 rounded bg-black tracking-wider"
                     onClick={() => dispatch(remove(key))}
                   >
                     <img src={Bin} alt="" className="w-[20px] h-[20px]" />
@@ -106,16 +106,16 @@ export default function ShoppingCart() {
             myBasket.length == 0 ? "w-screen" : "w-[50%]"
           } flex flex-col items-center justify-end`}
         >
-          <img src={Skate} alt="" />
+          <img src={Skate} alt="" className="xl:pt-10"/>
 
-          <div className="flex justify-center items-center w-[100%]">
+          <div className="flex justify-center items-center w-[100%] pt-2">
             {myBasket.length == 0 ? (
-              <h1 className="text-[18px] text-[#006214ff] font-semibold tracking-widest">
+              <h1 className="text-[18px] text-[#006214ff] font-semibold tracking-widest xl:pt-10 lg:pt-4 md:pt-6 max-[426px]:text-center max-[426px]:pt-4 max-[426px]:w-[80%]">
                 MAMMA MIA, YOUR BASKET IS STILL EMPTY!
               </h1>
             ) : (
-              <div className="border-t-2 border-black w-[200px] flex justify-center">
-                <h1 className="font-semibold text-[20px]">TOTAL:{myTotal} €</h1>
+              <div className="border-t-2 border-black w-[280px] flex justify-center pt-2">
+                <h1 className="font-semibold text-[20px] tracking-widest">TOTAL:{myTotal} €</h1>
               </div>
             )}
           </div>

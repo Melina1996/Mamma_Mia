@@ -4,13 +4,10 @@ export const basketSlice = createSlice({
   name: "basket",
   initialState: {
     value: [],
-    allProducts: [],
     total: 0
   },
   reducers: {
     add: (state, action) => {
-
-    state.allProducts.push(action.payload.name)
 
       //only if product does not exist yet on my array, I add it
       if (!state.value.some((item) => item.name === action.payload.name)) {

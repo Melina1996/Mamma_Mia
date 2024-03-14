@@ -38,7 +38,7 @@ export default function Home() {
         <Filters setPizzas={setPizzas} numAscending={numAscending} numDescending={numDescending} myPizzas={myPizzas}/>
 
 
-      <div className="flex flex-wrap justify-center items-center">
+      <div className="flex flex-wrap justify-center items-center pt-4">
         {myIngredient != ""
           ? myPizzas.map((item, key) =>
               item.ingredients.includes(myIngredient) ? (

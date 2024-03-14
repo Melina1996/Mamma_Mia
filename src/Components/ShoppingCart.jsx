@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
 import data from "../assets/JSON/data.json";
-import { add, remove, removeOneItem,total } from "../features/basketSlice";
+import { add, remove, removeOneItem, total } from "../features/basketSlice";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
+import Navbar from "./Navbar";
+import Bin from "../assets/img/bin.png";
+import Skate from "../assets/img/skate.png";
+
 export default function ShoppingCart() {
-
   const myBasket = useSelector((state) => state.basket.value);
-
-  const allPizzas = useSelector((state) => state.basket.allProducts);
 
   const dispatch = useDispatch();
 
@@ -18,67 +19,98 @@ export default function ShoppingCart() {
   // const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    dispatch(total(
-      myBasket.reduce(
-        (total, currentValue) =>
-          (total = total + currentValue.price * currentValue.quantity),
-        0
+    dispatch(
+      total(
+        myBasket.reduce(
+          (total, currentValue) =>
+            (total = total + currentValue.price * currentValue.quantity),
+          0
+        )
       )
-    ));
+    );
   }, [myBasket]);
 
   return (
-    <div>
-      {myBasket.map((item, key) => (
+    <div className="w-screen">
+      <Navbar />
+
+      <div className="pt-28 flex justify-center items-start">
         <div
-          key={key}
-          className="flex flex-col justify-center items-center text-center w-[400px] h-[400px]"
+          className={`${
+            myBasket.length == 0 ? "w-[0]" : "w-[50%]"
+          } bg-[#006214ff] rounded-r-xl shadow-lg`}
         >
-          <img
-            className="rounded w-[50%]"
-            src={
-              new URL(
-                //image path starts from HERE
-                `../img/${item.image}`,
-                import.meta.url
-              ).href
-            }
-            alt=""
-          />
-          <div className="flex flex-col gap-2 pt-4">
-            <p className="font-semibold">{item.name.toUpperCase()}</p>
-            <p>{item.ingredients + ""}</p>
-          </div>
-
-          <p>{item.price * item.quantity}€</p>
-
-          <div className="flex justify-center items-center">
-            <button
-              onClick={() => dispatch(removeOneItem(item))}
-              className="bg-black text-white p-2 px-4 rounded-full"
+          {myBasket.map((item, key) => (
+            <div
+              key={key}
+              className="flex justify-start items-center text-center w-[800px]"
             >
-              -
-            </button>
-            <p>{item.quantity}</p>
-            <button
-              onClick={() => dispatch(add(item))}
-              className="bg-black text-white p-2 px-4 rounded-full"
-            >
-              +
-            </button>
-          </div>
+              <img
+                className="rounded w-[30%] transition-all hover:rotate-180"
+                src={
+                  new URL(
+                    //image path starts from HERE
+                    `../assets/img/${item.image}`,
+                    import.meta.url
+                  ).href
+                }
+                alt=""
+              />
+              <div className="flex flex-col items-start gap-2 pt-4">
+                <p className="font-semibold text-[20px] text-white">
+                  {item.name.toUpperCase()}
+                </p>
+                <p>{item.ingredients.join(" | ")}</p>
 
-          <button
-            className="bg-red-600 text-white p-2 rounded"
-            onClick={() => dispatch(remove(key))}
-          >
-            DELETE
-          </button>
+                <p className="text-[18px] text-[#006214ff] font-semibold text-white">
+                  {item.price * item.quantity}€
+                </p>
+
+                <div className="flex justify-center items-center gap-2">
+                  <button
+                    onClick={() => dispatch(removeOneItem(item))}
+                    className="bg-black text-white p-2 px-4 rounded-full font-semibold hover:bg-white hover:text-black"
+                  >
+                    -
+                  </button>
+                  <p className="font-semibold">{item.quantity}</p>
+                  <button
+                    onClick={() => dispatch(add(item))}
+                    className="bg-black text-white p-2 px-4 rounded-full font-semibold hover:bg-white hover:text-black"
+                  >
+                    +
+                  </button>
+
+                  <button
+                    className="hover:bg-red-600 text-white p-2 rounded bg-black"
+                    onClick={() => dispatch(remove(key))}
+                  >
+                    <img src={Bin} alt="" className="w-[20px] h-[20px]" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
 
-      <div>
-        <h1>TOTAL:{myTotal} €</h1>
+        <div
+          className={`${
+            myBasket.length == 0 ? "w-screen" : "w-[50%]"
+          } flex flex-col items-center justify-end`}
+        >
+          <img src={Skate} alt=""/>
+
+          <div className="flex justify-center items-center w-[100%]">
+            {myBasket.length == 0 ? (
+              <h1 className="text-[18px] text-[#006214ff] font-semibold tracking-widest">MAMMA MIA, YOUR BASKET IS STILL EMPTY!</h1>
+            ) : (
+
+              <div className="border-t-2 border-black w-[200px] flex justify-center">
+                  <h1 className="font-semibold text-[20px]">TOTAL:{myTotal} €</h1>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

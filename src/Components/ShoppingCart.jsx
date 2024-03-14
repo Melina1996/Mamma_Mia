@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import Navbar from "./Navbar";
 import Bin from "../assets/img/bin.png";
 import Skate from "../assets/img/skate.png";
+import Footer from "./Footer";
 
 export default function ShoppingCart() {
   const myBasket = useSelector((state) => state.basket.value);
@@ -34,19 +35,19 @@ export default function ShoppingCart() {
     <div className="w-screen">
       <Navbar />
 
-      <div className="pt-28 flex justify-center items-center">
+      <div className="pt-28 flex flex-row max-[426px]:flex-col-reverse justify-center items-center pb-10 max-[426px]:gap-4">
         <div
           className={`${
-            myBasket.length == 0 ? "w-[0]" : "w-[50%]"
-          } bg-[#006214ff] rounded-r-xl shadow-lg`}
+            myBasket.length == 0 ? "w-[0]" : "md:w-[50%] max-[426px]:w-[100%]"
+          } bg-[#006214ff] md:rounded-r-xl shadow-lg`}
         >
           {myBasket.map((item, key) => (
             <div
               key={key}
-              className="flex justify-start items-center text-center w-[800px]"
+              className="flex justify-start items-center text-center"
             >
               <img
-                className={`${item.name == "DIY" ? "w-[30%]" : "w-[30%]"} rounded transition-all hover:rotate-180`}
+                className={`lg:w-[30%] md:w-[40%] max-[426px]:w-[50%] rounded transition-all hover:rotate-180`}
                 src={
                   new URL(
                     //image path starts from HERE
@@ -56,21 +57,21 @@ export default function ShoppingCart() {
                 }
                 alt=""
               />
-              <div className="flex flex-col items-start gap-2 pt-4">
-                <p className="font-semibold text-[20px] text-white tracking-wider">
+              <div className="flex flex-col items-start gap-2 p-4">
+                <p className="font-semibold md:text-[20px] max-[426px]:text-[16px] text-white tracking-wider">
                   {item.name.toUpperCase()}
                 </p>
 
                 {item.name == "DIY" ? (
-                  <p className="tracking-wider">{item.ingredients.map((item,key)=>
+                  <p className="tracking-wider max-[426px]:text-[15px]">{item.ingredients.map((item,key)=>
                   <span key={key}>{item.name} </span>
                   )}</p>
   
                 ) : (
-                  <p className="text-white tracking-wider">{item.ingredients.join(" | ")}</p>
+                  <p className="text-white tracking-wider text-left">{item.ingredients.join(" | ")}</p>
                 )}
 
-                <p className="text-[18px] text-[#006214ff] font-semibold text-white tracking-wider">
+                <p className="md:text-[18px] max-[426px]:text-[15px] text-[#006214ff] font-semibold text-white tracking-wider">
                   {item.price * item.quantity}€
                 </p>
 
@@ -81,7 +82,7 @@ export default function ShoppingCart() {
                   >
                     -
                   </button>
-                  <p className="font-semibold text-white tracking-wider">{item.quantity}</p>
+                  <p className="font-semibold text-white tracking-wider max-[426px]:text-[15px]">{item.quantity}</p>
                   <button
                     onClick={() => dispatch(add(item))}
                     className="bg-black text-white p-2 px-4 rounded-full font-semibold hover:bg-white hover:text-black"
@@ -115,12 +116,14 @@ export default function ShoppingCart() {
               </h1>
             ) : (
               <div className="border-t-2 border-black w-[280px] flex justify-center pt-2">
-                <h1 className="font-semibold text-[20px] tracking-widest">TOTAL:{myTotal} €</h1>
+                <h1 className="font-semibold lg:text-[20px] tracking-widest">TOTAL:{myTotal} €</h1>
               </div>
             )}
           </div>
         </div>
       </div>
+
+      <Footer/>
     </div>
   );
 }

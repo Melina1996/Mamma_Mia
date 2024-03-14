@@ -37,7 +37,7 @@ export default function Navbar() {
         </NavLink>
       </div>
 
-      <div className="w-[50%] flex justify-end">
+      <div className="w-[50%] flex justify-end relative">
         <NavLink
           to={`/shoppingcart`}
           onMouseEnter={() => {

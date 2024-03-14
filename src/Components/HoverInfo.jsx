@@ -10,8 +10,8 @@ export default function HoverInfo(props) {
   return (
     <div
       className={`bg-[#F7C300ff] text-black absolute ${
-        myBasket.length == 0 ? "w-[200px]" : "w-[400px]"
-      } top-[75px] z-10 right-2 rounded p-4 py-6 myNav`}
+        myBasket.length == 0 ? "w-[200px]" : "md:w-[300px] max-[426px]:w-screen"
+      } top-[80px] z-10 md:rounded max-[426px]:right-[-40px] p-4 py-6 myNav`}
       style={props.style}
     >
       {myBasket.length == 0 ? (

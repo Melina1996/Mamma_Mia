@@ -8,6 +8,7 @@ import data from "../assets/JSON/data.json";
 
 import Navbar from "./Navbar";
 import Filters from "./Filters";
+import Footer from "./Footer";
 
 import Banner from "../assets/img/pizzaBanner.jpg";
 
@@ -114,6 +115,8 @@ export default function Home() {
               </div>
             ))}
       </div>
+
+      <Footer />
     </div>
   );
 }

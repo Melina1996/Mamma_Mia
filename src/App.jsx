@@ -12,7 +12,7 @@ export default function App() {
 
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "/Mamma_Mia",
       element: <Home />,
     },
     {

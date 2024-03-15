@@ -20,7 +20,7 @@ export default function Details() {
       <Navbar></Navbar>
 
       <div className="pl-14 pt-28">
-        <NavLink to={`/`}>
+        <NavLink to={`/Mamma_Mia`}>
           <img src={Back} alt="" className="w-[70px] h-[70px] drop-shadow-xl" />
         </NavLink>
       </div>

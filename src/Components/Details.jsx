@@ -26,7 +26,7 @@ export default function Details() {
       </div>
 
       {data[id].name != "DIY" ? (
-        <div className="flex flex-col justify-center items-center w-screen pb-10">
+        <div className="flex justify-center items-center w-screen pb-10">
           <div className="w-[50%] flex justify-center items-center">
             <img
               className="rounded md:w-[60%] drop-shadow-xl transform-all hover:rotate-90"
@@ -61,7 +61,7 @@ export default function Details() {
                 onClick={() => dispatch(add(data[id]))}
                 className="bg-black text-white p-2 rounded-full w-[80px] shadow-lg tracking-widest hover:bg-[#006214ff]"
               >
-                ORDER
+                ADD
               </button>
 
           </div>

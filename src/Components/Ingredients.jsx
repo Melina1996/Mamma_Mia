@@ -3,9 +3,12 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { chose } from "../features/ingredientsSlice";
 import { add } from "../features/basketSlice";
+import { useSelector } from "react-redux";
 
 export default function Ingredients() {
   const dispatch = useDispatch();
+
+  const myBasket = useSelector((state) => state.basket.value);
 
   const [myIngredients, setIngredients] = useState([]);
 
@@ -81,9 +84,19 @@ export default function Ingredients() {
     checkedTuna,
   ]);
 
+  const [exist, setExist] = useState(false);
+
+  useEffect(() => {
+    if (myBasket.some((item) => item.name === name)) {
+      setExist(true);
+    } else {
+      setExist(false);
+    }
+  }, [name]);
+
   return (
-    <div className="flex justify-center items-center gap-2 w-screen p-20">
-      <div className="w-[50%] flex justify-center items-center">
+    <div className="flex md:flex-row flex-col justify-center items-center gap-2 w-screen xl:p-20 lg:p-16">
+      <div className="lg:w-[50%] md:w-[40%] flex lg:justify-start xl:justify-center md:justify-center items-center max-[426px]:justify-center">
         <img
           src={
             new URL(
@@ -93,16 +106,17 @@ export default function Ingredients() {
             ).href
           }
           alt=""
+          className="md:w-[65%] max-[426px]:w-[65%]"
         />
       </div>
 
-      <div className="w-[50%] flex justify-start items-center">
-        <div className="flex flex-col gap-6">
-          <div>
-            <h1 className="text-[25px] font-semibold tracking-wider">
+      <div className="lg:w-[50%] md:w-[60%] flex md:justify-start items-center">
+        <div className="flex flex-col gap-6 max-[426px]:justify-center max-[426px]:items-center">
+          <div className="flex flex-col max-[426px]:justify-center max-[426px]:items-center max-[426px]:w-[80%]">
+            <h1 className="lg:text-[25px] md:text-[20px] font-semibold tracking-wider max-[426px]:text-[20px]">
               CREATE YOUR OWN PIZZA!
             </h1>
-            <p className="text-[16px] text-[#006214ff] tracking-wider">
+            <p className="lg:text-[16px] md:text-[14px] text-[#006214ff] tracking-wider max-[426px]:justify-center max-[426px]:text-center max-[426px]:text-[14px]">
               Each pizza base consists in sourdough dough and tomatoe sauce.
             </p>
           </div>
@@ -111,7 +125,7 @@ export default function Ingredients() {
             <input
               type="text"
               placeholder="Name your pizza!"
-              className="border-2 p-2 rounded-full border-[#006214ff] placeholder:tracking-widest outline-none"
+              className="border-2 p-2 rounded-full border-[#006214ff] placeholder:tracking-widest outline-none placeholder:md:text-[15px]"
               onChange={(e) => setName(e.target.value)}
             />
             <button
@@ -123,13 +137,21 @@ export default function Ingredients() {
           </div>
 
           {name.length < 3 || name.length > 10 ? (
-            <p className="text-red-600">
+            <p className="text-red-600 italic text-[15px]">
               Choose a name between 3 and 10 characters!
             </p>
           ) : (
             ""
           )}
-          <div className="flex gap-36">
+
+          {exist ? (
+            <p className="text-red-600 italic text-[15px]">
+              This name already exists!
+            </p>
+          ) : (
+            ""
+          )}
+          <div className="flex md:gap-36 max-[426px]:gap-20">
             <div className="flex flex-col gap-2">
               <div className="flex gap-2">
                 <input
@@ -143,7 +165,7 @@ export default function Ingredients() {
                         : splice("Tomatoes");
                   }}
                 ></input>
-                <label htmlFor="" className="tracking-widest">
+                <label htmlFor="" className="tracking-widest md:text-[15px] lg:text-[17px]">
                   Tomatoes
                 </label>
               </div>
@@ -160,7 +182,7 @@ export default function Ingredients() {
                         : splice("Onions");
                   }}
                 ></input>
-                <label htmlFor="" className="tracking-widest">
+                <label htmlFor="" className="tracking-widest md:text-[15px] lg:text-[17px]">
                   Onions
                 </label>
               </div>
@@ -177,7 +199,7 @@ export default function Ingredients() {
                         : splice("Cheese");
                   }}
                 ></input>
-                <label htmlFor="" className="tracking-widest">
+                <label htmlFor="" className="tracking-widest md:text-[15px] lg:text-[17px]">
                   Cheese
                 </label>
               </div>
@@ -194,7 +216,7 @@ export default function Ingredients() {
                         : splice("Paprika");
                   }}
                 ></input>
-                <label htmlFor="" className="tracking-widest">
+                <label htmlFor="" className="tracking-widest md:text-[15px] lg:text-[17px]">
                   Paprika
                 </label>
               </div>
@@ -213,7 +235,7 @@ export default function Ingredients() {
                         : splice("Salami");
                   }}
                 ></input>
-                <label htmlFor="" className="tracking-widest">
+                <label htmlFor="" className="tracking-widest md:text-[15px] lg:text-[17px]">
                   Salami
                 </label>
               </div>
@@ -230,7 +252,7 @@ export default function Ingredients() {
                         : splice("Tuna");
                   }}
                 ></input>
-                <label htmlFor="" className="tracking-widest">
+                <label htmlFor="" className="tracking-widest md:text-[15px] lg:text-[17px]">
                   Tuna
                 </label>
               </div>
@@ -247,7 +269,7 @@ export default function Ingredients() {
                         : splice("Mushrooms");
                   }}
                 ></input>
-                <label htmlFor="" className="tracking-widest">
+                <label htmlFor="" className="tracking-widest md:text-[15px] lg:text-[17px]">
                   Mushrooms
                 </label>
               </div>
@@ -264,19 +286,19 @@ export default function Ingredients() {
                         : splice("Basil");
                   }}
                 ></input>
-                <label htmlFor="" className="tracking-widest">
+                <label htmlFor="" className="tracking-widest md:text-[15px] lg:text-[17px]">
                   Basil
                 </label>
               </div>
             </div>
           </div>
-          <div className="w-[100%] flex justify-start items-center pt-4">
-            {name.length >= 3 && name.length <= 10 ? (
+          <div className="w-[100%] flex justify-start items-center lg:pt-4 md:pb-10">
+            {name.length >= 3 && name.length <= 10 && !exist ? (
               <button
                 onClick={() => dispatch(add(myDIY))}
                 className="bg-[#006214ff] rounded-full p-2 w-[80px] shadow-lg text-white tracking-widest"
               >
-                DONE
+                ORDER
               </button>
             ) : (
               ""

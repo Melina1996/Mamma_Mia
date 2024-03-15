@@ -5,7 +5,8 @@
       "image": "mozzarella.png",
       "ingredients": ["tomatoes", "cheese", "basil"],
       "quantity": 0,
-      "type": "normal"
+      "type": "normal",
+      "description": "Savor the perfection of the Margherita Pizza: a crispy crust topped with vibrant San Marzano tomato sauce, fresh mozzarella, and fragrant basil leaves. Baked to golden perfection, each bite delivers a symphony of flavors, evoking the essence of Italy. Whether shared with loved ones or savored solo, its simplicity and taste make it an irresistible classic. Indulge in the Margherita Pizza's timeless allure and let its deliciousness transport you to culinary bliss."
     },
     {
       "name": "Margherita Salami",
@@ -13,7 +14,8 @@
       "image": "mozza-salami.png",
       "ingredients": ["salami","tomatoes", "cheese", "basil"],
       "quantity": 0,
-      "type": "normal"
+      "type": "normal",
+      "description": "Experience the delicious twist of the Margherita Salami Pizza. Crisp dough, San Marzano sauce, mozzarella, and basil form the base. Premium salami adds a savory, smoky depth. Baked to perfection, each bite offers a delightful contrast of textures and tastes. Whether shared or enjoyed solo, this pizza promises to captivate your palate with its irresistible blend of flavors."
     },
     {
       "name": "Pepper Salami",
@@ -21,7 +23,8 @@
       "image": "paprika.png",
       "ingredients": ["pepper", "salami", "cheese","tomatoes","olives"],
       "quantity": 0,
-      "type": "normal"
+      "type": "normal",
+      "description": "Savor the irresistible blend of flavors with the Paprika Salami Pizza. Crisp dough, San Marzano sauce, mozzarella, and basil create the base. Premium salami, infused with smoky paprika, adds a bold and savory kick. Baked to perfection, each bite offers a delightful contrast of textures and tastes. Whether shared with friends or enjoyed solo, this pizza promises to tantalize your taste buds with its delicious combination of ingredients."
     },
     {
       "name": "Mushrooms Salami",
@@ -29,7 +32,8 @@
       "image": "mushroom.png",
       "ingredients": ["salami","mushrooms", "tomatoes", "cheese", "basil"],
       "quantity": 0,
-      "type": "normal"
+      "type": "normal",
+      "description": "Indulge in the savory delight of Mushroom Salami Pizza. With a crispy base, San Marzano sauce, mozzarella, and basil, it's a taste sensation. But it's the addition of savory salami and earthy mushrooms that truly make it stand out. Baked to perfection, each bite offers a symphony of flavors, making every slice unforgettable. Whether shared with friends or savored solo, this pizza promises to tantalize your taste buds with its delicious combination of ingredients."
     },
     {
       "name": "Tuna",
@@ -37,7 +41,8 @@
       "image": "tuna.png",
       "ingredients": ["tuna", "onions", "cheese"],
       "quantity": 0,
-      "type": "normal"
+      "type": "normal",
+      "description": "Savor the enticing flavors of Tuna Pizza. With a crispy base, tangy tomato sauce, creamy mozzarella, and aromatic basil, it's a culinary delight. But it's the addition of flavorful tuna that truly sets it apart. Baked to perfection, each bite offers a harmonious blend of textures and tastes. Whether enjoyed with company or solo, this pizza promises to tantalize your taste buds with its unique combination, making it a memorable dining experience."
     },
     {
       "name": "Mushrooms Veggie",
@@ -45,7 +50,8 @@
       "image": "veggie_olives.png",
       "ingredients": ["mushrooms", "olives", "cheese","tomatoes"],
       "quantity": 0,
-      "type": "normal"
+      "type": "normal",
+      "description": "With a crispy crust, tangy tomato sauce, mozzarella, basil, and hearty mushrooms, the Veggie Mushroom Pizza is a flavor-packed delight. Baked to perfection, each bite offers a satisfying blend of textures and tastes. Whether shared or enjoyed alone, this pizza promises to please with its delicious combination of ingredients."
     },
     {
       "name": "DIY",

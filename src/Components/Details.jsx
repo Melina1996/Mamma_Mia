@@ -26,10 +26,10 @@ export default function Details() {
       </div>
 
       {data[id].name != "DIY" ? (
-        <div className="flex justify-center items-center w-screen pb-10">
-          <div className="w-[50%] flex justify-center items-center">
+        <div className="flex flex-col lg:flex-row justify-center items-center w-screen pb-10">
+          <div className="xl:w-[50%] lg:w-[40%] flex justify-center items-center">
             <img
-              className="rounded md:w-[60%] drop-shadow-xl transform-all hover:rotate-90"
+              className="rounded md:w-[60%] lg:w-[70%] drop-shadow-xl transform-all hover:rotate-90"
               src={
                 new URL(
                   //image path starts from HERE
@@ -41,7 +41,7 @@ export default function Details() {
             />
           </div>
 
-          <div className="flex flex-col justify-center items-center w-[50%] gap-3">
+          <div className="flex flex-col justify-center lg:items-start items-center xl:w-[50%] lg:w-[60%] gap-3">
             <div className="flex justify-center items-center gap-4 max-[426px]:w-screen">
               <h1 className="font-semibold lg:text-[20px] tracking-wider">
                 {data[id].name.toUpperCase()}
@@ -53,9 +53,11 @@ export default function Details() {
   
             </div>
 
-            <p className="lg:text-[16px] tracking-wider max-[426px]:w-screen text-center">
+            <p className="lg:text-[16px] xl:text-[18px] tracking-wider max-[426px]:w-screen text-center">
               {data[id].ingredients.join(" | ")}
             </p>
+
+            <p className="md:w-[500px] w-[80%] xl:w-[600px] lg:text-[15px] xl:text-[17px] text-justify tracking-wider leading-7">{data[id].description}</p>
 
               <button
                 onClick={() => dispatch(add(data[id]))}

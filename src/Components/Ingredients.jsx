@@ -5,6 +5,8 @@ import { chose } from "../features/ingredientsSlice";
 import { add } from "../features/basketSlice";
 import { useSelector } from "react-redux";
 
+import Checkbox from "./Checkbox";
+
 export default function Ingredients() {
   const dispatch = useDispatch();
 
@@ -24,6 +26,17 @@ export default function Ingredients() {
   const [checkedBasil, setCheckedBasil] = useState(false);
 
   const allIngredients = [
+    { name: "Tomatoes", price: 2 },
+    { name: "Basil", price: 1 },
+    { name: "Cheese", price: 2 },
+    { name: "Mushrooms", price: 2 },
+    { name: "Onions", price: 1 },
+    { name: "Paprika", price: 3 },
+    { name: "Salami", price: 4 },
+    { name: "Tuna", price: 4 },
+  ];
+
+  const allChecked = [
     checkedTomatoe,
     checkedBasil,
     checkedCheese,
@@ -32,6 +45,17 @@ export default function Ingredients() {
     checkedPaprika,
     checkedSalami,
     checkedTuna,
+  ];
+
+  const allSetChecked = [
+    setCheckedTomatoe,
+    setCheckedBasil,
+    setCheckedCheese,
+    setCheckedMushrooms,
+    setCheckedOnions,
+    setCheckedPaprika,
+    setCheckedSalami,
+    setCheckedTuna,
   ];
 
   const [myDIY, setDIY] = useState({
@@ -152,144 +176,35 @@ export default function Ingredients() {
             ""
           )}
           <div className="flex md:gap-36 max-[426px]:gap-20">
-            <div className="flex flex-col gap-2">
-              <div className="flex gap-2">
-                <input
-                  type="checkbox"
-                  className="accent-[#006214ff] w-[20px]"
-                  checked={checkedTomatoe}
-                  onChange={(e) => {
-                    setCheckedTomatoe(!checkedTomatoe),
-                      e.target.checked
-                        ? myIngredients.push({ name: "Tomatoes", price: 2 })
-                        : splice("Tomatoes");
-                  }}
-                ></input>
-                <label htmlFor="" className="tracking-widest md:text-[15px] lg:text-[17px]">
-                  Tomatoes
-                </label>
-              </div>
-
-              <div className="flex gap-2">
-                <input
-                  type="checkbox"
-                  className="accent-[#006214ff] w-[20px]"
-                  checked={checkedOnions}
-                  onChange={(e) => {
-                    setCheckedOnions(!checkedOnions),
-                      e.target.checked
-                        ? myIngredients.push({ name: "Onions", price: 1 })
-                        : splice("Onions");
-                  }}
-                ></input>
-                <label htmlFor="" className="tracking-widest md:text-[15px] lg:text-[17px]">
-                  Onions
-                </label>
-              </div>
-
-              <div className="flex gap-2">
-                <input
-                  type="checkbox"
-                  className="accent-[#006214ff] w-[20px]"
-                  checked={checkedCheese}
-                  onChange={(e) => {
-                    setCheckedCheese(!checkedCheese),
-                      e.target.checked
-                        ? myIngredients.push({ name: "Cheese", price: 3 })
-                        : splice("Cheese");
-                  }}
-                ></input>
-                <label htmlFor="" className="tracking-widest md:text-[15px] lg:text-[17px]">
-                  Cheese
-                </label>
-              </div>
-
-              <div className="flex gap-2">
-                <input
-                  type="checkbox"
-                  className="accent-[#006214ff] w-[20px]"
-                  checked={checkedPaprika}
-                  onChange={(e) => {
-                    setCheckedPaprika(!checkedPaprika),
-                      e.target.checked
-                        ? myIngredients.push({ name: "Paprika", price: 2 })
-                        : splice("Paprika");
-                  }}
-                ></input>
-                <label htmlFor="" className="tracking-widest md:text-[15px] lg:text-[17px]">
-                  Paprika
-                </label>
-              </div>
+            <div className="flex flex-col gap-4 justify-center items-start">
+              {allIngredients.map((item, key) => (
+                key <= 3 ? 
+                    (
+                    <Checkbox
+                    element={item}
+                    id={key}
+                    allChecked={allChecked}
+                    allSetChecked={allSetChecked}
+                    myIngredients={myIngredients}
+                  />)
+                  :
+                  ""
+              ))}
             </div>
-
-            <div className="w-[50%] flex flex-col gap-2">
-              <div className="flex gap-2">
-                <input
-                  type="checkbox"
-                  className="accent-[#006214ff] w-[20px]"
-                  checked={checkedSalami}
-                  onChange={(e) => {
-                    setCheckedSalami(!checkedSalami),
-                      e.target.checked
-                        ? myIngredients.push({ name: "Salami", price: 4 })
-                        : splice("Salami");
-                  }}
-                ></input>
-                <label htmlFor="" className="tracking-widest md:text-[15px] lg:text-[17px]">
-                  Salami
-                </label>
-              </div>
-
-              <div className="flex gap-2">
-                <input
-                  type="checkbox"
-                  className="accent-[#006214ff] w-[20px]"
-                  checked={checkedTuna}
-                  onChange={(e) => {
-                    setCheckedTuna(!checkedTuna),
-                      e.target.checked
-                        ? myIngredients.push({ name: "Tuna", price: 4 })
-                        : splice("Tuna");
-                  }}
-                ></input>
-                <label htmlFor="" className="tracking-widest md:text-[15px] lg:text-[17px]">
-                  Tuna
-                </label>
-              </div>
-
-              <div className="flex gap-2">
-                <input
-                  type="checkbox"
-                  className="accent-[#006214ff] w-[20px]"
-                  checked={checkedMushrooms}
-                  onChange={(e) => {
-                    setCheckedMushrooms(!checkedMushrooms),
-                      e.target.checked
-                        ? myIngredients.push({ name: "Mushrooms", price: 2 })
-                        : splice("Mushrooms");
-                  }}
-                ></input>
-                <label htmlFor="" className="tracking-widest md:text-[15px] lg:text-[17px]">
-                  Mushrooms
-                </label>
-              </div>
-
-              <div className="flex gap-2">
-                <input
-                  type="checkbox"
-                  className="accent-[#006214ff] w-[20px]"
-                  checked={checkedBasil}
-                  onChange={(e) => {
-                    setCheckedBasil(!checkedBasil),
-                      e.target.checked
-                        ? myIngredients.push({ name: "Basil", price: 1 })
-                        : splice("Basil");
-                  }}
-                ></input>
-                <label htmlFor="" className="tracking-widest md:text-[15px] lg:text-[17px]">
-                  Basil
-                </label>
-              </div>
+            <div className="flex flex-col gap-4 justify-center items-start">
+              {allIngredients.map((item, key) => (
+                key > 3 ? 
+                    (
+                    <Checkbox
+                    element={item}
+                    id={key}
+                    allChecked={allChecked}
+                    allSetChecked={allSetChecked}
+                    myIngredients={myIngredients}
+                  />)
+                  :
+                  ""
+              ))}
             </div>
           </div>
           <div className="w-[100%] flex justify-start items-center lg:pt-4 md:pb-10">

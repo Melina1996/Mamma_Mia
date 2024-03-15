@@ -2,7 +2,7 @@ import React from "react";
 
 import PHONE from "../assets/img/PHONE.png";
 import MAIL from "../assets/img/MAIL.png";
-import Uber from "../assets/img/Uber.png"
+import Uber from "../assets/img/Uber.png";
 import FB from "../assets/img/Facebook.png";
 import Twitter from "../assets/img/Twitter.png";
 
@@ -79,7 +79,9 @@ export default function Footer() {
       </div>
 
       <div className="h-[50px] bg-[#006214ff] border-t-2 w-screen flex justify-center items-center tracking-wider">
-        <p className="text-[15px] text-white">website made by &#127829; lovers</p>
+        <p className="text-[15px] text-white">
+          website made by &#127829; lovers
+        </p>
       </div>
     </div>
   );

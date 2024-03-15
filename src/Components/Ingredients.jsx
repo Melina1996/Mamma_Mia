@@ -153,7 +153,7 @@ export default function Ingredients() {
               onChange={(e) => setName(e.target.value)}
             />
             <button
-              className="p-2 rounded-full bg-[#006214ff] text-white tracking-widest shadow-lg"
+              className="p-2 rounded-full hover:bg-[#006214ff] bg-black text-white tracking-widest shadow-lg"
               onClick={() => renamePizza(name)}
             >
               GO
@@ -177,44 +177,48 @@ export default function Ingredients() {
           )}
           <div className="flex md:gap-36 max-[426px]:gap-20">
             <div className="flex flex-col gap-4 justify-center items-start">
-              {allIngredients.map((item, key) => (
-                key <= 3 ? 
-                    (
-                    <Checkbox
+              {allIngredients.map((item, key) =>
+                key <= 3 ? (
+                  <Checkbox
                     element={item}
                     id={key}
                     allChecked={allChecked}
                     allSetChecked={allSetChecked}
                     myIngredients={myIngredients}
-                  />)
-                  :
+                    splice={splice}
+                  />
+                ) : (
                   ""
-              ))}
+                )
+              )}
             </div>
             <div className="flex flex-col gap-4 justify-center items-start">
-              {allIngredients.map((item, key) => (
-                key > 3 ? 
-                    (
-                    <Checkbox
+              {allIngredients.map((item, key) =>
+                key > 3 ? (
+                  <Checkbox
                     element={item}
                     id={key}
                     allChecked={allChecked}
                     allSetChecked={allSetChecked}
                     myIngredients={myIngredients}
-                  />)
-                  :
+                  />
+                ) : (
                   ""
-              ))}
+                )
+              )}
             </div>
           </div>
           <div className="w-[100%] flex justify-start items-center lg:pt-4 md:pb-10">
             {name.length >= 3 && name.length <= 10 && !exist ? (
-              <button
-                onClick={() => dispatch(add(myDIY))}
-                className="bg-[#006214ff] rounded-full p-2 w-[80px] shadow-lg text-white tracking-widest"
-              >
-                ORDER
-              </button>
+              <div className="flex items-center gap-4">
+                <button
+                  onClick={() => dispatch(add(myDIY))}
+                  className="hover:bg-[#006214ff] bg-black rounded-full p-2 w-[80px] shadow-lg text-white tracking-widest"
+                >
+                  ORDER
+                </button>
+                <p className="text-[20px] tracking-wider">{myDIY.price} €</p>
+              </div>
             ) : (
               ""
             )}

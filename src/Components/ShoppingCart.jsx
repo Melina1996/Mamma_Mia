@@ -50,7 +50,7 @@ export default function ShoppingCart() {
               className="flex justify-start items-center text-center"
             >
               <img
-                className={`lg:w-[30%] md:w-[40%] max-[426px]:w-[50%] rounded transition-all hover:rotate-180`}
+                className={`lg:w-[30%] md:w-[40%] max-[426px]:w-[50%] rounded transition-all hover:rotate-180 duration-[2000ms]`}
                 src={
                   new URL(
                     //image path starts from HERE
@@ -102,7 +102,7 @@ export default function ShoppingCart() {
                     </button>
 
                     <button
-                      className="hover:bg-red-600 text-white p-2 rounded bg-black tracking-wider"
+                      className="hover:bg-[#FF383Dff] text-white p-2 rounded bg-black tracking-wider"
                       onClick={() => dispatch(remove(key))}
                     >
                       <img src={Bin} alt="" className="w-[20px] h-[20px]" />

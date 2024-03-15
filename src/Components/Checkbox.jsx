@@ -14,14 +14,14 @@ export default function Checkbox(props) {
                   name: props.element.name,
                   price: props.element.price,
                 })
-              : splice(props.element.name);
+              : props.splice(props.element.name);
         }}
       ></input>
       <label
         htmlFor=""
         className="tracking-widest md:text-[15px] lg:text-[17px]"
       >
-        {props.element.name}
+        {props.element.name} {props.element.price}€
       </label>
     </div>
   );

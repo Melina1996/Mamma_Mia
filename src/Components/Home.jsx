@@ -51,7 +51,7 @@ export default function Home() {
                   <img
                     className={`${
                       item.name == "DIY" ? "xl:w-[80%]" : "xl:w-[70%]"
-                    } rounded lg:w-[65%] md:w-[70%] max-[426px]:w-[40%] transition-all hover:rotate-180 drop-shadow-xl`}
+                    } rounded lg:w-[65%] md:w-[70%] max-[426px]:w-[40%] transition-all hover:rotate-180 drop-shadow-xl duration-[2000ms]`}
                     src={
                       new URL(
                         //image path starts from HERE
@@ -61,8 +61,8 @@ export default function Home() {
                     }
                     alt=""
                   />
-                  <div className="flex flex-col gap-2 pt-4">
-                    <div className="max-[426px]:flex max-[426px]:flex-col">
+                  <div className="flex flex-col gap-2 pt-4 items-center">
+                    <div className="max-[426px]:flex max-[426px]:flex-col md:flex md:flex-row md:gap-2 items-center">
                       <Link
                         to={`/details/${key}`}
                         className="font-semibold md:text-[18px] max-[426px]:text-[15px] tracking-wider"
@@ -86,10 +86,10 @@ export default function Home() {
           : myPizzas.map((item, key) => (
               <div
                 key={key}
-                className="flex flex-col justify-center items-center text-center xl:w-[400px] xl:h-[400px] lg:w-[300px] lg:h-[300px] md:w-[350px] md:h-[350px] max-[426px]:w-[200px] max-[426px]:h-[200px]"
+                className="flex flex-col justify-center items-center text-center xl:w-[400px] xl:h-[400px] lg:w-[300px] lg:h-[300px] md:w-[350px] md:h-[350px] max-[426px]:w-[200px] max-[426px]:h-[200px] max-[375px]:w-[180px] max-[375px]:h-[180px]"
               >
                 <img
-                  className={`rounded lg:w-[65%] md:w-[70%] max-[426px]:w-[40%] transition-all hover:rotate-180 drop-shadow-xl`}
+                  className={`rounded lg:w-[65%] md:w-[70%] max-[426px]:w-[40%] transition-all hover:rotate-180 drop-shadow-xl duration-[2000ms]`}
                   src={
                     new URL(
                       //image path starts from HERE
@@ -101,7 +101,7 @@ export default function Home() {
                 />
                 <div className="flex flex-col gap-2 max-[426px]:justify-center max-[426px]:items-center">
                   <div className="flex justify-center items-center gap-2 max-[426px]:h-[40px]">
-                    <div className="max-[426px]:flex max-[426px]:flex-col md:flex md:flex-row md:gap-2">
+                    <div className="max-[426px]:flex max-[426px]:flex-col md:flex md:flex-row md:gap-2 items-center">
                       <Link
                         to={`/details/${key}`}
                         className="font-semibold md:text-[18px] max-[426px]:text-[15px] tracking-wider"
@@ -114,12 +114,8 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="max-[426px]:text-[15px] max-[426px]:w-[80%] max-[375px]:w-[100%] max-[426px]:h-[60px] md:h-[60px] tracking-wider max-[426px]:flex max-[426px]:justify-center max-[426px]:items-center">
-                    <p>
-                      {item.ingredients.join(" | ")}
-                    </p>
-
+                    <p>{item.ingredients.join(" | ")}</p>
                   </div>
-
                 </div>
               </div>
             ))}

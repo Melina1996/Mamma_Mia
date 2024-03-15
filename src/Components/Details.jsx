@@ -29,7 +29,7 @@ export default function Details() {
         <div className="flex flex-col lg:flex-row justify-center items-center w-screen pb-10">
           <div className="xl:w-[50%] lg:w-[40%] flex justify-center items-center">
             <img
-              className="rounded md:w-[60%] lg:w-[70%] drop-shadow-xl transform-all hover:rotate-90"
+              className="rounded md:w-[60%] lg:w-[70%] drop-shadow-xl transform-all hover:rotate-90 duration-[2000ms]"
               src={
                 new URL(
                   //image path starts from HERE

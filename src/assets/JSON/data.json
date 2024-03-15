@@ -55,7 +55,7 @@
     },
     {
       "name": "DIY",
-      "price": "min. 3",
+      "price": "from 3",
       "image": "dough.png",
       "ingredients": [""],
       "quantity": 0,

@@ -54,7 +54,7 @@ export default function Filters(props) {
         onClick={() => {
           props.setPizzas(data), dispatch(chose("")), setBtn("");
         }}
-        className="hover:bg-red-600 text-white p-2 rounded-full bg-black shadow"
+        className="hover:bg-[#FF383Dff] text-white p-2 rounded-full bg-black shadow"
       >
         <img
           src={X}

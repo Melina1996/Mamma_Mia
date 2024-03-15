@@ -26,7 +26,7 @@ export default function Filters(props) {
           }}
           className={`${
             btn == "lowest" ? "bg-[#006214ff]" : "bg-black"
-          } hover:bg-[#006214ff] text-white p-2 rounded-full w-[160px] shadow`}
+          } hover:bg-[#006214ff] text-white p-2 rounded-full w-[160px] shadow-lg`}
         >
           <p className="tracking-widest text-[15px]">LOWEST PRICE</p>
         </button>
@@ -36,7 +36,7 @@ export default function Filters(props) {
           }}
           className={`${
             btn == "highest" ? "bg-[#006214ff]" : "bg-black"
-          } hover:bg-[#006214ff] text-white p-2 rounded-full w-[160px] shadow`}
+          } hover:bg-[#006214ff] text-white p-2 rounded-full w-[160px] shadow-lg`}
         >
           <p className="tracking-widest text-[15px]">HIGHEST PRICE</p>
         </button>

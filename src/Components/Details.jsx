@@ -47,25 +47,25 @@ export default function Details() {
                 {data[id].name.toUpperCase()}
               </h1>
 
-                <p className="text-[#006214ff] lg:text-[22px] font-semibold tracking-wider">
-                  {data[id].price} €
-                </p>
-  
+              <p className="text-[#006214ff] lg:text-[22px] font-semibold tracking-wider">
+                {data[id].price} €
+              </p>
             </div>
 
             <p className="lg:text-[16px] xl:text-[18px] tracking-wider max-[426px]:w-screen text-center">
               {data[id].ingredients.join(" | ")}
             </p>
 
-            <p className="md:w-[500px] w-[80%] xl:w-[600px] lg:text-[15px] xl:text-[17px] text-justify tracking-wider leading-7">{data[id].description}</p>
+            <p className="md:w-[500px] w-[80%] xl:w-[600px] lg:text-[15px] xl:text-[17px] text-justify tracking-wider leading-7">
+              {data[id].description}
+            </p>
 
-              <button
-                onClick={() => dispatch(add(data[id]))}
-                className="bg-black text-white p-2 rounded-full w-[80px] shadow-lg tracking-widest hover:bg-[#006214ff]"
-              >
-                ADD
-              </button>
-
+            <button
+              onClick={() => dispatch(add(data[id]))}
+              className="bg-black text-white p-2 rounded-full w-[80px] shadow-lg tracking-widest hover:bg-[#006214ff]"
+            >
+              ADD
+            </button>
           </div>
         </div>
       ) : (

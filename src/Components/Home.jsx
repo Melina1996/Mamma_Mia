@@ -9,6 +9,7 @@ import data from "../assets/JSON/data.json";
 import Navbar from "./Navbar";
 import Filters from "./Filters";
 import Footer from "./Footer";
+import ScrollBtn from "./ScrollBtn";
 
 import Banner from "../assets/img/pizzaBanner.jpg";
 
@@ -61,15 +62,18 @@ export default function Home() {
                     alt=""
                   />
                   <div className="flex flex-col gap-2 pt-4">
-                    <Link
-                      to={`/details/${key}`}
-                      className="font-semibold md:text-[18px] max-[426px]:text-[15px] tracking-wider max-[426px]:h-[40px]"
-                    >
-                      {item.name.toUpperCase()}
-                    </Link>
-                    <p className="text-[#006214ff] font-semibold tracking-wider">
-                      {item.price}€
-                    </p>
+                    <div className="max-[426px]:flex max-[426px]:flex-col">
+                      <Link
+                        to={`/details/${key}`}
+                        className="font-semibold md:text-[18px] max-[426px]:text-[15px] tracking-wider"
+                      >
+                        {item.name.toUpperCase()}
+                      </Link>
+                      <p className="text-[#006214ff] font-semibold tracking-wider">
+                        {item.price}€
+                      </p>
+                    </div>
+
                     <p className="max-[426px]:text-[15px] max-[426px]:h-[60px] md:h-[60px] tracking-wider">
                       {item.ingredients.join(" | ")}
                     </p>
@@ -95,27 +99,33 @@ export default function Home() {
                   }
                   alt=""
                 />
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 max-[426px]:justify-center max-[426px]:items-center">
                   <div className="flex justify-center items-center gap-2 max-[426px]:h-[40px]">
-                    <Link
-                      to={`/details/${key}`}
-                      className="font-semibold md:text-[18px] max-[426px]:text-[15px] tracking-wider"
-                    >
-                      {item.name.toUpperCase()}
-                    </Link>
-
-                    <p className="text-[#006214ff] font-semibold tracking-wider">
-                      {item.price}€
-                    </p>
+                    <div className="max-[426px]:flex max-[426px]:flex-col md:flex md:flex-row md:gap-2">
+                      <Link
+                        to={`/details/${key}`}
+                        className="font-semibold md:text-[18px] max-[426px]:text-[15px] tracking-wider"
+                      >
+                        {item.name.toUpperCase()}
+                      </Link>
+                      <p className="text-[#006214ff] font-semibold tracking-wider">
+                        {item.price}€
+                      </p>
+                    </div>
                   </div>
-                  <p className="max-[426px]:text-[15px] max-[426px]:h-[60px] md:h-[60px] tracking-wider">
-                    {item.ingredients.join(" | ")}
-                  </p>
+                  <div className="max-[426px]:text-[15px] max-[426px]:w-[80%] max-[375px]:w-[100%] max-[426px]:h-[60px] md:h-[60px] tracking-wider max-[426px]:flex max-[426px]:justify-center max-[426px]:items-center">
+                    <p>
+                      {item.ingredients.join(" | ")}
+                    </p>
+
+                  </div>
+
                 </div>
               </div>
             ))}
       </div>
 
+      <ScrollBtn />
       <Footer />
     </div>
   );

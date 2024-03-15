@@ -12,37 +12,37 @@ export default function Dropdown() {
           onClick={() => dispatch(chose("tomatoes"))}
           className="hover:font-bold hover:text-[#006214ff] flex justify-start"
         >
-          <p>Tomatoes</p>
+          <p className="tracking-wider">Tomatoes</p>
         </button>
         <button
           onClick={() => dispatch(chose("cheese"))}
           className="hover:font-bold hover:text-[#006214ff] flex justify-start"
         >
-          <p>Cheese</p>
+          <p className="tracking-wider">Cheese</p>
         </button>
         <button
           onClick={() => dispatch(chose("basil"))}
           className="hover:font-bold hover:text-[#006214ff] flex justify-start"
         >
-          <p>Basil</p>
+          <p className="tracking-wider">Basil</p>
         </button>
         <button
           onClick={() => dispatch(chose("onions"))}
           className="hover:font-bold hover:text-[#006214ff] flex justify-start"
         >
-          <p>Onions</p>
+          <p className="tracking-wider">Onions</p>
         </button>
         <button
           onClick={() => dispatch(chose("tuna"))}
           className="hover:font-bold hover:text-[#006214ff] flex justify-start"
         >
-          <p>Tuna</p>
+          <p className="tracking-wider">Tuna</p>
         </button>
         <button
           onClick={() => dispatch(chose("mushrooms"))}
           className="hover:font-bold hover:text-[#006214ff] flex justify-start"
         >
-          <p>Mushrooms</p>
+          <p className="tracking-wider">Mushrooms</p>
         </button>
       </ul>
     </div>

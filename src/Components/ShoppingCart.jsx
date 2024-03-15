@@ -39,7 +39,7 @@ export default function ShoppingCart() {
         <div
           className={`${
             myBasket.length == 0 ? "w-[0]" : "md:w-[50%] max-[426px]:w-[100%]"
-          } bg-[#006214ff] md:rounded-r-xl shadow-lg`}
+          } bg-[#006214ff] md:rounded-r-xl shadow-lg h-[500px] overflow-auto`}
         >
           {myBasket.map((item, key) => (
             <div
@@ -62,7 +62,7 @@ export default function ShoppingCart() {
                   {item.name.toUpperCase()}
                 </p>
 
-                {item.name == "DIY" ? (
+                {item.type == "DIY" ? (
                   <p className="tracking-wider max-[426px]:text-[15px]">{item.ingredients.map((item,key)=>
                   <span key={key}>{item.name} </span>
                   )}</p>

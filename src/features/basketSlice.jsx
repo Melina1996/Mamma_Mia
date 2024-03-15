@@ -8,14 +8,12 @@ export const basketSlice = createSlice({
   },
   reducers: {
     add: (state, action) => {
-
-        //"DIY" is always added, the other pizzas only if product does not exist yet on my array
-        if(action.payload.name == "DIY"){
-            state.value.push(action.payload);
-        } else if(!state.value.some((item) => item.name === action.payload.name)){
-            state.value.push(action.payload);
-        }
-
+      //only if product does not exist yet on my array, I add it
+      if (!state.value.some((item) => item.name === action.payload.name)) {
+        state.value.push(action.payload);
+      } else {
+        state.value;
+      }
 
       //I get index of my product
       const index = state.value.findIndex(
@@ -42,8 +40,8 @@ export const basketSlice = createSlice({
       }
     },
     total: (state, action) => {
-        state.total = action.payload
-      },
+      state.total = action.payload;
+    },
   },
 });
 

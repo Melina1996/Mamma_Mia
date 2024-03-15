@@ -37,6 +37,7 @@ export default function Ingredients() {
     ingredients: myIngredients,
     image: "dough.png",
     quantity: 0,
+    type: "DIY",
   });
 
   const update = (newPrice) => {
@@ -46,11 +47,14 @@ export default function Ingredients() {
     }));
   };
 
-  console.log(myDIY);
+  const [name, setName] = useState("");
 
-  const[name,setName]=useState("")
-
-  console.log(name)
+  function renamePizza() {
+    setDIY((prevState) => ({
+      ...prevState,
+      name: name,
+    }));
+  }
 
   function splice(ingredient) {
     const index = myIngredients.findIndex((obj) => obj.name === ingredient);
@@ -78,7 +82,7 @@ export default function Ingredients() {
   ]);
 
   return (
-    <div className="flex justify-center items-center gap-2 w-screen">
+    <div className="flex justify-center items-center gap-2 w-screen p-20">
       <div className="w-[50%] flex justify-center items-center">
         <img
           src={
@@ -93,11 +97,39 @@ export default function Ingredients() {
       </div>
 
       <div className="w-[50%] flex justify-start items-center">
-        <div className="flex flex-col">
-            <div>
-                <input type="text" placeholder="Name your pizza!" className="border-2" onChange={(e)=>setName(e.target.value)}/>
-            </div>
-          <div className="flex gap-20">
+        <div className="flex flex-col gap-6">
+          <div>
+            <h1 className="text-[25px] font-semibold tracking-wider">
+              CREATE YOUR OWN PIZZA!
+            </h1>
+            <p className="text-[16px] text-[#006214ff] tracking-wider">
+              Each pizza base consists in sourdough dough and tomatoe sauce.
+            </p>
+          </div>
+
+          <div className="flex gap-2 items-center">
+            <input
+              type="text"
+              placeholder="Name your pizza!"
+              className="border-2 p-2 rounded-full border-[#006214ff] placeholder:tracking-widest outline-none"
+              onChange={(e) => setName(e.target.value)}
+            />
+            <button
+              className="p-2 rounded-full bg-[#006214ff] text-white tracking-widest shadow-lg"
+              onClick={() => renamePizza(name)}
+            >
+              GO
+            </button>
+          </div>
+
+          {name.length < 3 || name.length > 10 ? (
+            <p className="text-red-600">
+              Choose a name between 3 and 10 characters!
+            </p>
+          ) : (
+            ""
+          )}
+          <div className="flex gap-36">
             <div className="flex flex-col gap-2">
               <div className="flex gap-2">
                 <input
@@ -239,12 +271,16 @@ export default function Ingredients() {
             </div>
           </div>
           <div className="w-[100%] flex justify-start items-center pt-4">
-            <button
-              onClick={() => dispatch(add(myDIY))}
-              className="bg-[#006214ff] rounded-full p-2 w-[80px] shadow text-white tracking-widest"
-            >
-              DONE
-            </button>
+            {name.length >= 3 && name.length <= 10 ? (
+              <button
+                onClick={() => dispatch(add(myDIY))}
+                className="bg-[#006214ff] rounded-full p-2 w-[80px] shadow-lg text-white tracking-widest"
+              >
+                DONE
+              </button>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>

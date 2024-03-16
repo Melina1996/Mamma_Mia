@@ -118,6 +118,8 @@ export default function Ingredients() {
     }
   }, [name]);
 
+  const[save,setSave]=useState(false)
+
   return (
     <div className="flex md:flex-row flex-col justify-center items-center gap-2 w-screen xl:p-20 lg:p-16">
       <div className="lg:w-[50%] md:w-[40%] flex lg:justify-start xl:justify-center md:justify-center items-center max-[426px]:justify-center">
@@ -149,14 +151,19 @@ export default function Ingredients() {
             <input
               type="text"
               placeholder="Name your pizza!"
-              className="border-2 p-2 rounded-full border-[#006214ff] placeholder:tracking-widest outline-none placeholder:md:text-[15px]"
+              className={`border-2 p-2 rounded-full border-[#006214ff] placeholder:tracking-widest outline-none placeholder:md:text-[15px] ${save ? "bg-[#006214ff] text-white" : "bg-white text-black"}`}
               onChange={(e) => setName(e.target.value)}
             />
             <button
               className="p-2 rounded-full hover:bg-[#006214ff] bg-black text-white tracking-widest shadow-lg"
-              onClick={() => renamePizza(name)}
+              onClick={() => {renamePizza(name),setSave(!save)}}
             >
-              GO
+                {
+                    save ? 
+                    "EDIT"
+                    :
+                    "SAVE"
+                }
             </button>
           </div>
 

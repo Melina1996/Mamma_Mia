@@ -2,7 +2,7 @@ import React from "react";
 
 import SocialMedia from "./SocialMedia";
 import Contact from "./Contact";
-import MyIframe from "./myIframe";
+import MyIframe from "./MyIframe";
 
 import PHONE from "../assets/img/PHONE.png";
 import MAIL from "../assets/img/MAIL.png";

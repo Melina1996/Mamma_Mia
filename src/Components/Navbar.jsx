@@ -32,7 +32,7 @@ export default function Navbar() {
   return (
     <div className="myNav flex justify-center gap-4 text-white items-center w-screen h-[100px] pr-14 shadow fixed z-30 top-0">
       <div className="w-[50%] flex justify-start pl-14">
-        <NavLink to={`/`}>
+        <NavLink to={`/Mamma_Mia`}>
           <img src={Peace} alt="" className="w-[100px] h-[100px]" />
         </NavLink>
       </div>
